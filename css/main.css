@@ -11,8 +11,9 @@ a {
 }
 
 ul.nav a:hover {
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.8);}
+  color: #000;
+  text-decoration: none;
+  background-color: rgba(150, 150, 150, 0.8);}
 
 .navbar {
   background-color: rgba(255, 255, 255, 0.8);
