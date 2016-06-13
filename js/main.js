@@ -22,7 +22,7 @@ $(function(){
       $(this).transition({
         scale: [1, 50]
       },function(){
-        console.log('testttt');
+        $('#menu_text').remove();
       });
     });
     $('#menu_text').transition({ opacity: 0},function(){
@@ -32,7 +32,18 @@ $(function(){
 
   $('body').click(function(){
     if(menu_flag){
-      console.log('click test');
+      menu_flag = false;
+      $('#menu_button').transition({
+        scale: [1, 1]
+      },function(){
+        $(this).transition({
+          rotate: '0deg',
+          y: 0,
+          width: 300
+        },function(){
+          $(this).prepend('<a id="menu_text">MENU</a>');
+        });
+      });
     }else{
       return false;
     }
