@@ -20,7 +20,7 @@ $(function(){
       width: 200
     },function(){
       $(this).transition({
-        scale: [1, 50]
+        scale: [1, 50.2]
       },function(){
         $('#menu_text').remove();
       });
