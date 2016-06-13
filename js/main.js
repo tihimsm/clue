@@ -3,12 +3,12 @@ $(function(){
   $('#menu_button').hover(
     function(){
       $(this).transition({
-        background: '#000'
+        opacity: 0.9
       });
     },
     function(){
       $(this).transition({
-        background: '#aaa'
+        opacity: 0.2
       });
     }
   );
@@ -20,11 +20,11 @@ $(function(){
       width: 200
     },function(){
       $(this).transition({
-        // height: '100%'
-      })
+        scale: [1, 50]
+      },function(){
+        console.log('testttt');
+      });
     });
-    // $(this).transition({ y: 75});
-    // $(this).transition({ width: 200});
     $('#menu_text').transition({ opacity: 0},function(){
       menu_flag = true;
     });
@@ -32,7 +32,7 @@ $(function(){
 
   $('body').click(function(){
     if(menu_flag){
-      $('#menu_text').transition({ opacity: 1});
+      console.log('click test');
     }else{
       return false;
     }
