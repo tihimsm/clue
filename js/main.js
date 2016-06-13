@@ -25,7 +25,8 @@ $(function(){
         $(this).transition({
           scale: [1, 50.2]
         },function(){
-          $('#menu_text').remove();
+          $.when($('#menu_text').remove())
+           .then($(this).prepend('<ul id="menu_list">MENU</ul>'));
         });
       });
       $('#menu_text').transition({ opacity: 0},function(){

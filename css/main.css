@@ -46,15 +46,9 @@ ul.nav a:hover {
   color: #fff;
 }
 
-/*#second_content{
-  background-image: url('../img/second.jpg');
-  background-size: cover;
+#menu_list {
+  transform: scaleY(calc(1/50.2));
 }
-
-#third_content{
-  background-image: url('../img/third.jpg');
-  background-size: cover;
-}*/
 
 .content_size {
   height: 100%;
