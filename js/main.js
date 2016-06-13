@@ -1,7 +1,7 @@
 $(function(){
   var body_flag = false;
   var menu_flag = true;
-  $('#menu_button').hover(
+  $('#menu_container').hover(
     function(){
       $(this).transition({
         opacity: 0.9
@@ -14,7 +14,7 @@ $(function(){
     }
   );
 
-  $('#menu_button').click(function(){
+  $('#menu_container').click(function(){
     if(menu_flag){
       menu_flag = false;
       $(this).transition({
@@ -40,7 +40,7 @@ $(function(){
   $('body').click(function(){
     if(body_flag){
       body_flag = false;
-      $('#menu_button').transition({
+      $('#menu_container').transition({
         scale: [1, 1]
       },function(){
         $(this).transition({
