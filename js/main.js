@@ -1,5 +1,6 @@
 $(function(){
-  var menu_flag = false;
+  var body_flag = false;
+  var menu_flag = true;
   $('#menu_button').hover(
     function(){
       $(this).transition({
@@ -14,25 +15,30 @@ $(function(){
   );
 
   $('#menu_button').click(function(){
-    $(this).transition({
-      rotate: '90deg',
-      y: 75,
-      width: 200
-    },function(){
+    if(menu_flag){
+      menu_flag = false;
       $(this).transition({
-        scale: [1, 50.2]
+        rotate: '90deg',
+        y: 75,
+        width: 200
       },function(){
-        $('#menu_text').remove();
+        $(this).transition({
+          scale: [1, 50.2]
+        },function(){
+          $('#menu_text').remove();
+        });
       });
-    });
-    $('#menu_text').transition({ opacity: 0},function(){
-      menu_flag = true;
-    });
+      $('#menu_text').transition({ opacity: 0},function(){
+        body_flag = true;
+      });
+    }else{
+      return false;
+    }
   });
 
   $('body').click(function(){
-    if(menu_flag){
-      menu_flag = false;
+    if(body_flag){
+      body_flag = false;
       $('#menu_button').transition({
         scale: [1, 1]
       },function(){
@@ -42,6 +48,7 @@ $(function(){
           width: 300
         },function(){
           $(this).prepend('<a id="menu_text">MENU</a>');
+          menu_flag = true;
         });
       });
     }else{
