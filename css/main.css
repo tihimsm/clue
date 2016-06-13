@@ -21,6 +21,10 @@ ul.nav a:hover {
   margin: 0;
 }
 
+.content_size {
+  height: 100%;
+}
+
 #first_content{
   background-image: url('../img/second.jpg');
   background-size: cover;
@@ -46,10 +50,13 @@ ul.nav a:hover {
 #menu_button {
   background-color: #000;
   opacity: 0.2;
+  height: 50px;
+  width: 300px;
+  top: 75px;
   position: absolute;
 }
 
-#menu_container a {
+#menu_button a {
   text-decoration: none;
   font-size: 20px;
   font-weight: lighter;
@@ -57,10 +64,6 @@ ul.nav a:hover {
   color: #fff;
 }
 
-#menu_list {
+/*#menu_list {
   transform: scaleY(calc(1/50.2));
-}
-
-.content_size {
-  height: 100%;
-}
+}*/
