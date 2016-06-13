@@ -1,56 +1,73 @@
 $(function(){
   var body_flag = false;
   var menu_flag = true;
-  $('#menu_container').hover(
-    function(){
-      $(this).transition({
-        opacity: 0.9
-      });
-    },
-    function(){
-      $(this).transition({
-        opacity: 0.2
-      });
-    }
-  );
 
-  $('#menu_container').click(function(){
-    if(menu_flag){
-      menu_flag = false;
-      $(this).transition({
-        rotate: '90deg',
-        y: 75,
-        width: 200
-      },function(){
+  function menuHover(menu){
+    $(menu).hover(
+      function(){
         $(this).transition({
-          scale: [1, 50.2]
-        },function(){
-          $.when($('#menu_text').remove())
-           .then($(this).prepend('<ul id="menu_list">MENU</ul>'));
+          opacity: 0.9
         });
-      });
-      $('#menu_text').transition({ opacity: 0},function(){
-        body_flag = true;
-      });
-    }else{
-      return false;
-    }
-  });
+      },
+      function(){
+        $(this).transition({
+          opacity: 0.2
+        });
+      }
+    );
+  }
+
+  function menuOpen(){
+    $('.menu_button').click(function(){
+      if(menu_flag){
+        menu_flag = false;
+        $(this).transition({
+          rotate: '90deg',
+          y: 150,
+          width: 200,
+          height: 0,
+          opacity: 0
+        },function(){
+          $.when($(this).remove())
+          .then($('#menu_inner').prepend('<ul id="menu_list"></ul>'))
+          .then($('#menu_list').transition({
+            width: '100%',
+            opacity: 0.2
+          }, function(){
+            menuHover('#menu_list');
+            body_flag = true;
+          }));
+        });
+      }else{
+        return false;
+      }
+    });
+  }
+
+  menuHover('.menu_button');
+  menuOpen();
 
   $('body').click(function(){
     if(body_flag){
       body_flag = false;
-      $('#menu_container').transition({
-        scale: [1, 1]
+      $('#menu_list').transition({
+        width: 0,
+        opacity: 0
       },function(){
-        $(this).transition({
+        menu_flag = true;
+        $.when($(this).remove())
+        .then($('#menu_inner').prepend('<div class="menu_button" style="left: -150px; opacity: 0; width: 200px; height: 0; transform: rotate(90deg);"></div>'))
+        .then($('.menu_button').prepend('<a style="">MENU</a>'))
+        .then($('.menu_button').transition({
           rotate: '0deg',
-          y: 0,
-          width: 300
+          left: 0,
+          width: 300,
+          height: 50,
+          opacity: 0.2
         },function(){
-          $(this).prepend('<a id="menu_text">MENU</a>');
-          menu_flag = true;
-        });
+          menuHover('.menu_button');
+          menuOpen();
+        }));
       });
     }else{
       return false;
