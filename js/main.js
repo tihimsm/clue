@@ -1,66 +1,40 @@
 $(function(){
-  var windowSt = $(window);
-  var number = ['first', 'second', 'third'];
-  var elements = [];
-  var animateFlag = true;
-  var save  = 0; // タイムスタンプ保存用
-  var clock = 0; // タイムスタンプ比較用
-
-  for (var i = 0; i < number.length; i++) {
-    elements[i] = $('#' +number[i]+ '_content');
-  }
-
-  $('#about').click(function() {
-    scrollContent(0);
-  });
-
-  $('#works').click(function() {
-    scrollContent(1);
-  });
-
-  $('#contact').click(function() {
-    scrollContent(2);
-  });
-
-  $('body').on('mousewheel', function(e) {
-    if (windowSt.scrollTop() == elements[0].offset().top) {
-      if (e.deltaY < 0) {
-        i = 1;
-      } else {
-        i = 0;
-      }
-    } else if (windowSt.scrollTop() == elements[1].offset().top) {
-      if (e.deltaY < 0) {
-        i = 2;
-      } else {
-        i = 0;
-      }
-    } else if (windowSt.scrollTop() == elements[2].offset().top) {
-      if (e.deltaY < 0) {
-        i = 2;
-      } else {
-        i = 1;
-      }
+  var menu_flag = false;
+  $('#menu_button').hover(
+    function(){
+      $(this).transition({
+        background: '#000'
+      });
+    },
+    function(){
+      $(this).transition({
+        background: '#aaa'
+      });
     }
+  );
 
-    clock = e.timeStamp - save;
-    save  = e.timeStamp;
-    if(clock < 40) return false; // 比較結果が50msより少ない場合はキャンセル
-
-    scrollContent(i);
+  $('#menu_button').click(function(){
+    $(this).transition({
+      rotate: '90deg',
+      y: 75,
+      width: 200
+    },function(){
+      $(this).transition({
+        // height: '100%'
+      })
+    });
+    // $(this).transition({ y: 75});
+    // $(this).transition({ width: 200});
+    $('#menu_text').transition({ opacity: 0},function(){
+      menu_flag = true;
+    });
   });
 
-  function scrollContent(i) {
-    if(!animateFlag) return false;
-    animateFlag = false;
-    var speed = 500;
-    var href= $(this).attr("href");
-    var target = $(href == "#" || href == "" ? 'html' : href);
-    var position = elements[i].offset().top;
-    $("html, body").animate({scrollTop:position}, speed, "swing", function (){
-      animateFlag = true;
-    });
-    return false;
-  }
-
+  $('body').click(function(){
+    if(menu_flag){
+      $('#menu_text').transition({ opacity: 1});
+    }else{
+      return false;
+    }
+  });
 });

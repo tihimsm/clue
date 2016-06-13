@@ -16,18 +16,36 @@ ul.nav a:hover {
   background-color: rgba(150, 150, 150, 0.8);}
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: none;
   border-radius: 0;
-  /*box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);*/
   margin: 0;
 }
 
 #first_content{
-  background-image: url('../img/first.jpg');
+  background-image: url('../img/second.jpg');
   background-size: cover;
+  position: relative;
 }
 
-#second_content{
+#menu_button {
+  background-color: #aaa;
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  top: 70%;
+  left: 0;
+}
+
+#menu_button a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: lighter;
+  line-height: 50px;
+  color: #fff;
+}
+
+/*#second_content{
   background-image: url('../img/second.jpg');
   background-size: cover;
 }
@@ -35,8 +53,8 @@ ul.nav a:hover {
 #third_content{
   background-image: url('../img/third.jpg');
   background-size: cover;
-}
+}*/
 
 .content_size {
   height: 100%;
-8
+}
