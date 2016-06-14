@@ -27,7 +27,7 @@ $(function(){
         $(this).transition({
           rotate: '90deg',
           y: 150,
-          width: 200,
+          width: 150,
           height: 0,
           opacity: 0
         },function(){
