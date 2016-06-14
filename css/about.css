@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+}
+
+a {
+  color: #151515;
+}
+
+.navbar {
+  border: none;
+}
+
+ul.nav a:hover {
+  color: #000;
+  text-decoration: none;
+  background-color: rgba(150, 150, 150, 0.8);}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0;
+  /*box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);*/
+  margin: 0;
+}
+
+#first_content{
+  background-image: url('../img/first.jpg');
+  background-size: cover;
+}
+
+#second_content{
+  background-image: url('../img/second.jpg');
+  background-size: cover;
+}
+
+#third_content{
+  background-image: url('../img/third.jpg');
+  background-size: cover;
+}
+
+.content_size {
+  height: 100%;
+8

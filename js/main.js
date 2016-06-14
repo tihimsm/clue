@@ -38,10 +38,10 @@ $(function(){
             opacity: 0.2
           }, function(){
             menuHover('#menu_list');
-            $.when($('#menu_list').append('<li><a href="#">About</a></li>')
-            .append('<li><a href="#">Infomation</a></li>')
-            .append('<li><a href="#">Works</a></li>')
-            .append('<li><a href="#">Contact</a></li>'))
+            $.when($('#menu_list').append('<li><a id="aboutLink" href="about.html">About</a></li>')
+            .append('<li><a href="about.html">Infomation</a></li>')
+            .append('<li><a href="about.html">Works</a></li>')
+            .append('<li><a href="about.html">Contact</a></li>'))
             .then($('#menu_list li a').transition({
               opacity: 1
             }));
@@ -60,7 +60,7 @@ $(function(){
   $('body').click(function(e){
     if(body_flag){
       var target = e.target;
-      if (target.id === 'menu_list' || target.tagName === 'A') {
+      if (target.id === 'menu_list') {
         return false;
       }
       body_flag = false;
