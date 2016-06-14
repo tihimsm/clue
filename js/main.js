@@ -18,7 +18,7 @@ $(function(){
   }
 
   function menuOpen(){
-    $('.menu_button').click(function(){
+    $('#menu_button').click(function(){
       if(menu_flag){
         menu_flag = false;
         $(this).transition({
@@ -35,6 +35,10 @@ $(function(){
             opacity: 0.2
           }, function(){
             menuHover('#menu_list');
+            $('#menu_list').append('<li>about</li>')
+            .append('<li>about</li>')
+            .append('<li>about</li>')
+            .append('<li>about</li>');
             body_flag = true;
           }));
         });
@@ -44,11 +48,15 @@ $(function(){
     });
   }
 
-  menuHover('.menu_button');
+  menuHover('#menu_button');
   menuOpen();
 
-  $('body').click(function(){
+  $('body').click(function(e){
     if(body_flag){
+      var target = e.target;
+      if (target.id === 'menu_list') {
+        return false;
+      }
       body_flag = false;
       $('#menu_list').transition({
         width: 0,
@@ -56,16 +64,16 @@ $(function(){
       },function(){
         menu_flag = true;
         $.when($(this).remove())
-        .then($('#menu_inner').prepend('<div class="menu_button" style="left: -150px; opacity: 0; width: 200px; height: 0; transform: rotate(90deg);"></div>'))
-        .then($('.menu_button').prepend('<a style="">MENU</a>'))
-        .then($('.menu_button').transition({
+        .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; opacity: 0; width: 200px; height: 0; transform: rotate(90deg);"></div>'))
+        .then($('#menu_button').prepend('<a style="">MENU</a>'))
+        .then($('#menu_button').transition({
           rotate: '0deg',
           left: 0,
           width: 300,
           height: 50,
           opacity: 0.2
         },function(){
-          menuHover('.menu_button');
+          menuHover('#menu_button');
           menuOpen();
         }));
       });
