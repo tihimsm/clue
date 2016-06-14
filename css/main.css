@@ -80,7 +80,10 @@ ul.nav a:hover {
 }
 
 #menu_list li a{
+  line-height: 50px;
   opacity: 0;
+  font-size: 20px;
+  font-weight: lighter;
   color: #fff;
   text-decoration: none;
 }

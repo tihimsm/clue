@@ -6,7 +6,7 @@ $(function(){
     $(menu).hover(
       function(){
         $(this).transition({
-          opacity: 0.9
+          opacity: 0.8
         });
         if(menu === '#menu_button') {
           $(this).css("cursor","pointer");
