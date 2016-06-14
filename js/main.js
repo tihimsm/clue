@@ -8,6 +8,9 @@ $(function(){
         $(this).transition({
           opacity: 0.9
         });
+        if(menu === '#menu_button') {
+          $(this).css("cursor","pointer");
+        }
       },
       function(){
         $(this).transition({
@@ -35,10 +38,10 @@ $(function(){
             opacity: 0.2
           }, function(){
             menuHover('#menu_list');
-            $('#menu_list').append('<li>about</li>')
-            .append('<li>about</li>')
-            .append('<li>about</li>')
-            .append('<li>about</li>');
+            $('#menu_list').append('<li><a href="#">About</a></li>')
+            .append('<li><a href="#">Infomation</a></li>')
+            .append('<li><a href="#">Works</a></li>')
+            .append('<li><a href="#">Contact</a></li>');
             body_flag = true;
           }));
         });
@@ -54,7 +57,7 @@ $(function(){
   $('body').click(function(e){
     if(body_flag){
       var target = e.target;
-      if (target.id === 'menu_list') {
+      if (target.id === 'menu_list' || target.tagName === 'A') {
         return false;
       }
       body_flag = false;
