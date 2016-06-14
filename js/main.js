@@ -26,7 +26,7 @@ $(function(){
         menu_flag = false;
         $(this).transition({
           rotate: '90deg',
-          y: 150,
+          left: -150,
           width: 150,
           height: 0,
           opacity: 0
@@ -73,7 +73,7 @@ $(function(){
         },function(){
           menu_flag = true;
           $.when($(this).remove())
-          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; opacity: 0; width: 200px; height: 0; transform: rotate(90deg);"></div>'))
+          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; opacity: 0; width: 150px; height: 0; transform: rotate(90deg);"></div>'))
           .then($('#menu_button').prepend('<a style="">MENU</a>'))
           .then($('#menu_button').transition({
             rotate: '0deg',

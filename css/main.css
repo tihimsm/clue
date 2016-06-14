@@ -52,6 +52,7 @@ ul.nav a:hover {
   height: 50px;
   width: 300px;
   top: 75px;
+  left: 0;
   position: absolute;
 }
 
