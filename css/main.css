@@ -34,7 +34,7 @@ ul.nav a:hover {
 #menu_container {
   position: absolute;
   width: 100%;
-  height: 200px;
+  height: 150px;
   text-align: center;
   top: 60%;
   left: 0;
@@ -80,6 +80,7 @@ ul.nav a:hover {
 }
 
 #menu_list li a{
+  opacity: 0;
   color: #fff;
   text-decoration: none;
 }

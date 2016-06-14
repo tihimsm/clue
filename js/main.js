@@ -38,10 +38,13 @@ $(function(){
             opacity: 0.2
           }, function(){
             menuHover('#menu_list');
-            $('#menu_list').append('<li><a href="#">About</a></li>')
+            $.when($('#menu_list').append('<li><a href="#">About</a></li>')
             .append('<li><a href="#">Infomation</a></li>')
             .append('<li><a href="#">Works</a></li>')
-            .append('<li><a href="#">Contact</a></li>');
+            .append('<li><a href="#">Contact</a></li>'))
+            .then($('#menu_list li a').transition({
+              opacity: 1
+            }));
             body_flag = true;
           }));
         });
@@ -61,24 +64,28 @@ $(function(){
         return false;
       }
       body_flag = false;
-      $('#menu_list').transition({
-        width: 0,
+      $('#menu_list li a').transition({
         opacity: 0
-      },function(){
-        menu_flag = true;
-        $.when($(this).remove())
-        .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; opacity: 0; width: 200px; height: 0; transform: rotate(90deg);"></div>'))
-        .then($('#menu_button').prepend('<a style="">MENU</a>'))
-        .then($('#menu_button').transition({
-          rotate: '0deg',
-          left: 0,
-          width: 300,
-          height: 50,
-          opacity: 0.2
+      }, function(){
+        $('#menu_list').transition({
+          width: 0,
+          opacity: 0
         },function(){
-          menuHover('#menu_button');
-          menuOpen();
-        }));
+          menu_flag = true;
+          $.when($(this).remove())
+          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; opacity: 0; width: 200px; height: 0; transform: rotate(90deg);"></div>'))
+          .then($('#menu_button').prepend('<a style="">MENU</a>'))
+          .then($('#menu_button').transition({
+            rotate: '0deg',
+            left: 0,
+            width: 300,
+            height: 50,
+            opacity: 0.2
+          },function(){
+            menuHover('#menu_button');
+            menuOpen();
+          }));
+        });
       });
     }else{
       return false;
