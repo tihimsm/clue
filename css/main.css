@@ -21,21 +21,38 @@ ul.nav a:hover {
   margin: 0;
 }
 
+.content_size {
+  height: 100%;
+}
+
 #first_content{
   background-image: url('../img/second.jpg');
   background-size: cover;
   position: relative;
 }
 
+#menu_container {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  top: 60%;
+  left: 0;
+}
+
+#menu_inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 #menu_button {
   background-color: #000;
   opacity: 0.2;
-  position: absolute;
-  width: 300px;
   height: 50px;
-  text-align: center;
-  top: 70%;
-  left: 0;
+  width: 300px;
+  top: 75px;
+  position: absolute;
 }
 
 #menu_button a {
@@ -46,16 +63,24 @@ ul.nav a:hover {
   color: #fff;
 }
 
-/*#second_content{
-  background-image: url('../img/second.jpg');
-  background-size: cover;
+#menu_list {
+  padding-left: 0;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background-color: #000;
+  opacity: 0;
 }
 
-#third_content{
-  background-image: url('../img/third.jpg');
-  background-size: cover;
-}*/
+#menu_list li {
+  list-style: none;
+  width: 150px;
+  height: 50px;
+  float: left;
+}
 
-.content_size {
-  height: 100%;
+#menu_list li a{
+  opacity: 0;
+  color: #fff;
+  text-decoration: none;
 }
