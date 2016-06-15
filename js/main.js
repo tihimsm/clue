@@ -21,8 +21,8 @@ $(function(){
   }
 
   $('.animsition').animsition({
-    inClass: 'flip-in-y',
-    outClass: 'flip-out-y',
+    inClass: 'zoom-in-sm',
+    outClass: 'zoom-out-sm',
     inDuration: 1500,
     outDuration: 1500,
     linkElement: '.animsition-link',
