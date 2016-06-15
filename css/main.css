@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  background-color: #fff;
 }
 
 .main_container{
@@ -28,7 +29,8 @@ ul.nav a:hover {
 
 #first_content{
   background-image: url('../img/second.jpg');
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: relative;
 }
 
