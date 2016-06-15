@@ -21,22 +21,19 @@ $(function(){
   }
 
   $('.animsition').animsition({
-    inClass: 'zoom-in-sm',
-    outClass: 'zoom-out-sm',
+    inClass: 'flip-in-y',
+    outClass: 'flip-out-y',
     inDuration: 1500,
-    outDuration: 800,
+    outDuration: 1500,
     linkElement: '.animsition-link',
-    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-    loading: true,
-    loadingParentElement: 'body', //animsition wrapper element
+    loading: false,
+    loadingParentElement: 'body',
     loadingClass: 'animsition-loading',
-    loadingInner: '', // e.g '<img src="loading.svg" />'
+    loadingInner: '',
     timeout: false,
     timeoutCountdown: 5000,
     onLoadEvent: true,
     browser: [ 'animation-duration', '-webkit-animation-duration'],
-    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
     overlay : false,
     overlayClass : 'animsition-overlay-slide',
     overlayParentElement : 'body',
@@ -61,7 +58,7 @@ $(function(){
             opacity: 0.2
           }, function(){
             menuHover('#menu_list');
-            $.when($('#menu_list').append('<li><a id="aboutLink" href="about.html">About</a></li>')
+            $.when($('#menu_list').append('<li><a id="aboutLink" class="animsition-link" href="about.html">About</a></li>')
             .append('<li><a href="about.html">Infomation</a></li>')
             .append('<li><a href="about.html">Works</a></li>')
             .append('<li><a href="about.html">Contact</a></li>'))
