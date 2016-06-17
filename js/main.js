@@ -1,4 +1,17 @@
 $(function(){
+  $('#rabbit').lazylinepainter({
+    "svgData": pathObj,
+    "strokeWidth": 2,
+    "strokeColor": "#333333"
+  }).lazylinepainter('paint');
+
+
+
+
+
+
+
+
   var body_flag = false;
   var menu_flag = true;
 
