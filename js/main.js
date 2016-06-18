@@ -1,16 +1,10 @@
 $(function(){
-  $('#rabbit').lazylinepainter({
+
+  $('#yohji').lazylinepainter({
     "svgData": pathObj,
-    "strokeWidth": 2,
-    "strokeColor": "#333333"
+    "strokeWidth": 3,
+    "strokeColor": "#e09b99"
   }).lazylinepainter('paint');
-
-
-
-
-
-
-
 
   var body_flag = false;
   var menu_flag = true;
@@ -36,8 +30,8 @@ $(function(){
   $('.animsition').animsition({
     inClass: 'zoom-in-sm',
     outClass: 'zoom-out-sm',
-    inDuration: 1500,
-    outDuration: 1500,
+    inDuration: 0,
+    outDuration: 300,
     linkElement: '.animsition-link',
     loading: false,
     loadingParentElement: 'body',
