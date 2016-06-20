@@ -30,7 +30,7 @@ $(function(){
   $('.animsition').animsition({
     inClass: 'zoom-in-sm',
     outClass: 'zoom-out-sm',
-    inDuration: 0,
+    inDuration: 1,
     outDuration: 300,
     linkElement: '.animsition-link',
     loading: false,
