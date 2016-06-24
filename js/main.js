@@ -1,10 +1,23 @@
 $(function(){
 
-  $('#yohji').lazylinepainter({
-    "svgData": pathObj,
-    "strokeWidth": 3,
-    "strokeColor": "#e09b99"
-  }).lazylinepainter('paint');
+  setTimeout(function(){
+    $('#yohji').lazylinepainter({
+      "svgData": pathObj,
+      "strokeWidth": 3,
+      "strokeColor": "#000000"
+    }).lazylinepainter('paint');
+    setTimeout(function(){
+      $('#sWrapper').transition({opacity: 0}, 1000, function(){
+        $('.main_container').transition({opacity: 1}, 1000);
+      });
+    },4000);
+  },300);
+
+  // $('#yohji').lazylinepainter({
+  //   "svgData": pathObj,
+  //   "strokeWidth": 3,
+  //   "strokeColor": "#000000"
+  // }).lazylinepainter('paint');
 
   var body_flag = false;
   var menu_flag = true;
@@ -27,25 +40,25 @@ $(function(){
     );
   }
 
-  $('.animsition').animsition({
-    inClass: 'zoom-in-sm',
-    outClass: 'zoom-out-sm',
-    inDuration: 1,
-    outDuration: 300,
-    linkElement: '.animsition-link',
-    loading: false,
-    loadingParentElement: 'body',
-    loadingClass: 'animsition-loading',
-    loadingInner: '',
-    timeout: false,
-    timeoutCountdown: 5000,
-    onLoadEvent: true,
-    browser: [ 'animation-duration', '-webkit-animation-duration'],
-    overlay : false,
-    overlayClass : 'animsition-overlay-slide',
-    overlayParentElement : 'body',
-    transition: function(url){ window.location.href = url; }
-  });
+  // $('.animsition').animsition({
+  //   inClass: 'zoom-in-sm',
+  //   outClass: 'zoom-out-sm',
+  //   inDuration: 1,
+  //   outDuration: 300,
+  //   linkElement: '.animsition-link',
+  //   loading: false,
+  //   loadingParentElement: 'body',
+  //   loadingClass: 'animsition-loading',
+  //   loadingInner: '',
+  //   timeout: false,
+  //   timeoutCountdown: 5000,
+  //   onLoadEvent: true,
+  //   browser: [ 'animation-duration', '-webkit-animation-duration'],
+  //   overlay : false,
+  //   overlayClass : 'animsition-overlay-slide',
+  //   overlayParentElement : 'body',
+  //   transition: function(url){ window.location.href = url; }
+  // });
 
   function menuOpen(){
     $('#menu_button').click(function(){
