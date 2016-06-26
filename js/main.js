@@ -13,12 +13,6 @@ $(function(){
     },4000);
   },300);
 
-  // $('#yohji').lazylinepainter({
-  //   "svgData": pathObj,
-  //   "strokeWidth": 3,
-  //   "strokeColor": "#000000"
-  // }).lazylinepainter('paint');
-
   var body_flag = false;
   var menu_flag = true;
 
@@ -40,6 +34,21 @@ $(function(){
     );
   }
 
+  function linkHover() {
+    $('#menu_list li a').hover(
+      function(){
+        console.log('aa');
+        $(this).transition({
+          color: '#fff'
+        });
+      },
+      function(){
+        $(this).transition({
+          color: '#000'
+        });
+      }
+    );
+  }
   // $('.animsition').animsition({
   //   inClass: 'zoom-in-sm',
   //   outClass: 'zoom-out-sm',
@@ -82,9 +91,11 @@ $(function(){
             .append('<li><a href="about.html">Infomation</a></li>')
             .append('<li><a href="about.html">Works</a></li>')
             .append('<li><a href="about.html">Contact</a></li>'))
-            .then($('#menu_list li a').transition({
-              opacity: 1
-            }));
+            .then(
+              $('#menu_list li a').transition({
+                opacity: 1
+              },linkHover())
+            );
             body_flag = true;
           }));
         });
