@@ -37,7 +37,6 @@ $(function(){
   function linkHover() {
     $('#menu_list li a').hover(
       function(){
-        console.log('aa');
         $(this).transition({
           color: '#fff'
         });
