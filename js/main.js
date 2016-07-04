@@ -21,7 +21,7 @@ $(function(){
     $(menu).hover(
       function(){
         $(this).transition({
-          backgroundColor: 'rgba(80, 80, 80, 0.8)'
+          backgroundColor: 'rgba(80, 80, 80, 0.7)'
         });
         if(menu === '#menu_button') {
           $(this).css("cursor","pointer");
