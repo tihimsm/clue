@@ -81,8 +81,7 @@ ul.nav a:hover {
 }
 
 #menu_button {
-  background-color: #888;
-  opacity: 0.2;
+  background-color: rgba(80, 80, 80, 0.2);
   height: 50px;
   width: 300px;
   top: 75px;
@@ -95,7 +94,7 @@ ul.nav a:hover {
   font-size: 20px;
   font-weight: lighter;
   line-height: 50px;
-  color: #fff;
+  color: #000;
 }
 
 #menu_list {
@@ -103,8 +102,7 @@ ul.nav a:hover {
   position: absolute;
   height: 100%;
   width: 0;
-  background-color: #555;
-  opacity: 0;
+  background-color: rgba(80, 80, 80, 0);
 }
 
 #menu_list li {

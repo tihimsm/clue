@@ -9,6 +9,7 @@ $(function(){
     setTimeout(function(){
       $('#sWrapper').transition({opacity: 0}, 1000, function(){
         $('.main_container').transition({opacity: 1}, 1000);
+        $("#sWrapper").remove();
       });
     },4000);
   },300);
@@ -20,15 +21,21 @@ $(function(){
     $(menu).hover(
       function(){
         $(this).transition({
-          opacity: 0.8
+          backgroundColor: 'rgba(80, 80, 80, 0.8)'
         });
         if(menu === '#menu_button') {
           $(this).css("cursor","pointer");
+          $('#menu_button a').transition({
+            color: '#fff'
+          });
         }
       },
       function(){
         $(this).transition({
-          opacity: 0.2
+          backgroundColor: 'rgba(80, 80, 80, 0.2)'
+        });
+        $('#menu_button a').transition({
+          color: '#000'
         });
       }
     );
@@ -83,7 +90,7 @@ $(function(){
           .then($('#menu_inner').prepend('<ul id="menu_list"></ul>'))
           .then($('#menu_list').transition({
             width: '100%',
-            opacity: 0.2
+            backgroundColor: 'rgba(80, 80, 80, 0.2)'
           }, function(){
             menuHover('#menu_list');
             $.when($('#menu_list').append('<li><a id="aboutLink" class="animsition-link" href="about.html">About</a></li>')
@@ -119,18 +126,18 @@ $(function(){
       }, function(){
         $('#menu_list').transition({
           width: 0,
-          opacity: 0
+          backgroundColor: 'rgba(80, 80, 80, 0)'
         },function(){
           menu_flag = true;
           $.when($(this).remove())
-          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; opacity: 0; width: 150px; height: 0; transform: rotate(90deg);"></div>'))
+          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; background-color: rgba(80, 80, 80, 0); width: 150px; height: 0; transform: rotate(90deg);"></div>'))
           .then($('#menu_button').prepend('<a style="">MENU</a>'))
           .then($('#menu_button').transition({
             rotate: '0deg',
             left: 0,
             width: 300,
             height: 50,
-            opacity: 0.2
+            backgroundColor: 'rgba(80, 80, 80, 0.2)'
           },function(){
             menuHover('#menu_button');
             menuOpen();
