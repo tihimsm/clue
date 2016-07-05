@@ -22,21 +22,21 @@ $(function(){
       function(){
         $(this).transition({
           backgroundColor: 'rgba(80, 80, 80, 0.7)'
-        });
+        },300,'ease');
         if(menu === '#menu_button') {
           $(this).css("cursor","pointer");
           $('#menu_button a').transition({
             color: '#fff'
-          });
+          },300,'ease');
         }
       },
       function(){
         $(this).transition({
           backgroundColor: 'rgba(80, 80, 80, 0.2)'
-        });
+        },300,'ease');
         $('#menu_button a').transition({
           color: '#000'
-        });
+        },300,'ease');
       }
     );
   }
