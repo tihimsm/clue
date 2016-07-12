@@ -1,7 +1,9 @@
 $(function(){
 
   $.cookie("SPLASH", true, { expires: 1 });
-  console.log($.cookie("SPLASH"));
+  if($.cookie("SPLASH")){
+    splash();
+  }
 
   splash();
 
