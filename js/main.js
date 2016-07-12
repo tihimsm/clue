@@ -1,21 +1,66 @@
 $(function(){
-
-  setTimeout(function(){
-    $('#yohji').lazylinepainter({
-      "svgData": pathObj,
-      "strokeWidth": 3,
-      "strokeColor": "#000000"
-    }).lazylinepainter('paint');
-    setTimeout(function(){
-      $('#sWrapper').transition({opacity: 0}, 1000, function(){
-        $('.main_container').transition({opacity: 1}, 1000);
-        $("#sWrapper").remove();
-      });
-    },4000);
-  },300);
+  splash();
 
   var body_flag = false;
   var menu_flag = true;
+
+  // $('.animsition').animsition({
+  //   inClass: 'zoom-in-sm',
+  //   outClass: 'zoom-out-sm',
+  //   inDuration: 1,
+  //   outDuration: 300,
+  //   linkElement: '.animsition-link',
+  //   loading: false,
+  //   loadingParentElement: 'body',
+  //   loadingClass: 'animsition-loading',
+  //   loadingInner: '',
+  //   timeout: false,
+  //   timeoutCountdown: 5000,
+  //   onLoadEvent: true,
+  //   browser: [ 'animation-duration', '-webkit-animation-duration'],
+  //   overlay : false,
+  //   overlayClass : 'animsition-overlay-slide',
+  //   overlayParentElement : 'body',
+  //   transition: function(url){ window.location.href = url; }
+  // });
+
+  menuHover('#menu_button');
+  menuOpen();
+
+  $('body').click(function(e){
+    if(body_flag){
+      var target = e.target;
+      if (target.id === 'menu_list') {
+        return false;
+      }
+      body_flag = false;
+      $('#menu_list li a').transition({
+        opacity: 0
+      }, function(){
+        $('#menu_list').transition({
+          width: 0,
+          backgroundColor: 'rgba(80, 80, 80, 0)'
+        },function(){
+          menu_flag = true;
+          $.when($(this).remove())
+          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; background-color: rgba(80, 80, 80, 0); width: 150px; height: 0; transform: rotate(90deg);"></div>'))
+          .then($('#menu_button').prepend('<a style="">MENU</a>'))
+          .then($('#menu_button').transition({
+            rotate: '0deg',
+            left: 0,
+            width: 300,
+            height: 50,
+            backgroundColor: 'rgba(80, 80, 80, 0.2)'
+          },function(){
+            menuHover('#menu_button');
+            menuOpen();
+          }));
+        });
+      });
+    }else{
+      return false;
+    }
+  });
 
   function menuHover(menu){
     $(menu).hover(
@@ -55,25 +100,6 @@ $(function(){
       }
     );
   }
-  // $('.animsition').animsition({
-  //   inClass: 'zoom-in-sm',
-  //   outClass: 'zoom-out-sm',
-  //   inDuration: 1,
-  //   outDuration: 300,
-  //   linkElement: '.animsition-link',
-  //   loading: false,
-  //   loadingParentElement: 'body',
-  //   loadingClass: 'animsition-loading',
-  //   loadingInner: '',
-  //   timeout: false,
-  //   timeoutCountdown: 5000,
-  //   onLoadEvent: true,
-  //   browser: [ 'animation-duration', '-webkit-animation-duration'],
-  //   overlay : false,
-  //   overlayClass : 'animsition-overlay-slide',
-  //   overlayParentElement : 'body',
-  //   transition: function(url){ window.location.href = url; }
-  // });
 
   function menuOpen(){
     $('#menu_button').click(function(){
@@ -111,41 +137,20 @@ $(function(){
     });
   }
 
-  menuHover('#menu_button');
-  menuOpen();
-
-  $('body').click(function(e){
-    if(body_flag){
-      var target = e.target;
-      if (target.id === 'menu_list') {
-        return false;
-      }
-      body_flag = false;
-      $('#menu_list li a').transition({
-        opacity: 0
-      }, function(){
-        $('#menu_list').transition({
-          width: 0,
-          backgroundColor: 'rgba(80, 80, 80, 0)'
-        },function(){
-          menu_flag = true;
-          $.when($(this).remove())
-          .then($('#menu_inner').prepend('<div id="menu_button" style="left: -150px; background-color: rgba(80, 80, 80, 0); width: 150px; height: 0; transform: rotate(90deg);"></div>'))
-          .then($('#menu_button').prepend('<a style="">MENU</a>'))
-          .then($('#menu_button').transition({
-            rotate: '0deg',
-            left: 0,
-            width: 300,
-            height: 50,
-            backgroundColor: 'rgba(80, 80, 80, 0.2)'
-          },function(){
-            menuHover('#menu_button');
-            menuOpen();
-          }));
+  function splash(){
+    setTimeout(function(){
+      $('#yohji').lazylinepainter({
+        "svgData": pathObj,
+        "strokeWidth": 3,
+        "strokeColor": "#000000"
+      }).lazylinepainter('paint');
+      setTimeout(function(){
+        $('#sWrapper').transition({opacity: 0}, 1000, function(){
+          $('.main_container').transition({opacity: 1}, 1000);
+          $("#sWrapper").remove();
         });
-      });
-    }else{
-      return false;
-    }
-  });
+      },4000);
+    },300);
+  }
+
 });
