@@ -3,6 +3,11 @@ $(function(){
   $.cookie("SPLASH", true, { expires: 1 });
   if(!$.cookie("SPLASH")){
     splash();
+  }else{
+    $('#sWrapper').transition({opacity: 0}, 1000, function(){
+      $('.main_container').transition({opacity: 1}, 1000);
+      $("#sWrapper").remove();
+    });
   }
 
   var body_flag = false;
