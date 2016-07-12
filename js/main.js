@@ -1,6 +1,6 @@
 $(function(){
 
-  $.cookie("SPLASH", "TEST", { expires: 7 });
+  $.cookie("SPLASH", true, { expires: 1 });
   console.log($.cookie("SPLASH"));
 
   splash();
