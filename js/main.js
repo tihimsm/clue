@@ -1,11 +1,9 @@
 $(function(){
 
   $.cookie("SPLASH", true, { expires: 1 });
-  if($.cookie("SPLASH")){
+  if(!$.cookie("SPLASH")){
     splash();
   }
-
-  splash();
 
   var body_flag = false;
   var menu_flag = true;
