@@ -7,9 +7,9 @@ $(function(){
   var clock = 0; // タイムスタンプ比較用
 
   $('.animsition').animsition({
-    inClass: 'zoom-in-sm',
-    outClass: 'zoom-out-sm',
-    inDuration: 300,
+    inClass: 'fade-in-right-sm',
+    outClass: 'fade-out-right-sm',
+    inDuration: 1000,
     outDuration: 300,
     linkElement: '.animsition-link',
     loading: false,
