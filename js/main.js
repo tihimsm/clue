@@ -1,4 +1,8 @@
 $(function(){
+
+  $.cookie("SPLASH", "TEST", { expires: 7 });
+  console.log($.cookie("SPLASH"));
+
   splash();
 
   var body_flag = false;
