@@ -36,7 +36,6 @@ ul.nav a:hover {
 
 #first_content{
   background-image: url('../img/first.jpg');
-  background-size: cover;
 }
 
 #second_content{
@@ -45,4 +44,5 @@ ul.nav a:hover {
 
 #third_content{
   background-image: url('../img/third.jpg');
+  background-size: cover;
 }
